@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">medicinemates</string>
+    <string name="action_settings">Налаштування</string>
+    <string name="action_chat">Чат-помічник</string>
+    <string name="calendar_fragment_label">Календар</string>
+    <string name="preferences_fragment_label">Налаштування</string>
+    <string name="add">Додати</string>
+    <string name="save">Зберегти</string>
+    <string name="cancel">Охрана отмєна</string>
+    <string name="medicine_name">Назва добавки</string>
+    <string name="medicine_start_intake_date">Початок прийому пігулок</string>
+    <string name="medicine_end_intake_date">Кінець прийому пігулок</string>
+    <string name="medicine_intake_time">Час прийому пігулок</string>
+    <string name="dont_set">Не вказано</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

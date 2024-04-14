@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentCalendar">
+    <fragment
+        android:id="@+id/fragmentCalendar"
+        android:name="com.test.medicinemates.FragmentCalendar"
+        android:label="@string/calendar_fragment_label"
+        tools:layout="@layout/fragment_calendar" >
+        <action
+            android:id="@+id/action_fragmentCalendar_to_fragmentPreferences"
+            app:destination="@id/fragmentPreferences" />
+        <action
+            android:id="@+id/action_fragmentCalendar_to_fragmentAddMedicine"
+            app:destination="@id/fragmentAddMedicine"/>
+        <action
+            android:id="@+id/action_fragmentCalendar_to_fragmentChat"
+            app:destination="@id/fragmentChat" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentPreferences"
+        android:name="com.test.medicinemates.FragmentPreferences"
+        android:label="@string/preferences_fragment_label"
+        tools:layout="@layout/fragment_preferences" >
+        <action
+            android:id="@+id/action_fragmentPreferences_to_fragmentCalendar"
+            app:destination="@id/fragmentCalendar" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAddMedicine"
+        android:name="com.test.medicinemates.FragmentAddMedicine"
+        android:label="Додати нову добавку" >
+        <action
+            android:id="@+id/action_fragmentAddMedicine_to_fragmentCalendar"
+            app:destination="@id/fragmentCalendar" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentChat"
+        android:name="com.test.medicinemates.FragmentChat"
+        android:label="FragmentChat" >
+        <action
+            android:id="@+id/action_fragmentChat_to_fragmentCalendar"
+            app:destination="@id/fragmentCalendar" />
+    </fragment>
+</navigation>
