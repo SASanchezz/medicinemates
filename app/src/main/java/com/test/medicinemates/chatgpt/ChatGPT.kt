@@ -27,6 +27,7 @@ class ChatGPT {
                 )
             )
 
+
             val request = ChatCompletionRequest(
                 model = ModelId("gpt-3.5-turbo"),
                 messages = messages,
