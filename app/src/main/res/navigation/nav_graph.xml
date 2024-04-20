@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/fragmentChat"
         android:name="com.test.medicinemates.FragmentChat"
-        android:label="FragmentChat" >
+        android:label="@string/chat_fragment_label" >
         <action
             android:id="@+id/action_fragmentChat_to_fragmentCalendar"
             app:destination="@id/fragmentCalendar" />

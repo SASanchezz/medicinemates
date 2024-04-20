@@ -49,6 +49,9 @@ class FragmentAddMedicine : Fragment() {
     ): View? {
         _binding = FragmentAddMedicineBinding.inflate(inflater, container, false)
 
+        startIntakeCalendar.timeInMillis = System.currentTimeMillis()
+        endIntakeCalendar.timeInMillis = System.currentTimeMillis()
+
         this.initialIntakeDate = arguments?.getString("intakeDate")
         binding.etStartIntakeDate.setText(this.initialIntakeDate)
         daysOfWeekLayout = LinearLayout(requireContext())
@@ -85,19 +88,21 @@ class FragmentAddMedicine : Fragment() {
     }
 
 
-    private fun setNotificationAlarm() {
+    private fun setNotificationAlarm(intervalInMillis: Long) {
         val alarmManager = requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val requestCode: Long = Calendar.getInstance().timeInMillis + 1
+        val timeInMillis = startIntakeCalendar.timeInMillis
+
 
         val intent = Intent(requireContext(), AlarmReceiver::class.java)
+        intent.putExtra("description", binding.etMedicineName.text.toString())
         intent.flags = Intent.FLAG_ACTIVITY_MULTIPLE_TASK
         val pendingIntent = PendingIntent.getBroadcast(requireContext(), 0, intent,
             PendingIntent.FLAG_IMMUTABLE)
 
         alarmManager.setRepeating(
             AlarmManager.RTC_WAKEUP,
-            startIntakeCalendar.timeInMillis,
-            AlarmManager.INTERVAL_FIFTEEN_MINUTES / 5,
+            timeInMillis,
+            intervalInMillis,
             pendingIntent
         )
     }
@@ -141,7 +146,37 @@ class FragmentAddMedicine : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             Db.medicineRepository.insertNewMedicine(newMedicine.toMedicineDbEntity())
         }
-        setNotificationAlarm()
+
+        when (newMedicine.recurringType) {
+            ERecurringType.EVERY_OTHER_DAY -> {
+                val interval = AlarmManager.INTERVAL_DAY * 2
+                setNotificationAlarm(interval)
+            }
+
+            ERecurringType.ON_WEEK -> {
+                val interval = AlarmManager.INTERVAL_DAY * 7
+                for (day in weekDays!!.split(",")) {
+                    val dayOfWeek = day.toInt()
+                    val calendar = Calendar.getInstance()
+                    calendar.set(
+                        Calendar.HOUR_OF_DAY,
+                        startIntakeCalendar.get(Calendar.HOUR_OF_DAY)
+                    )
+                    calendar.set(Calendar.MINUTE, startIntakeCalendar.get(Calendar.MINUTE))
+                    calendar.set(Calendar.SECOND, 0)
+                    calendar.set(Calendar.MILLISECOND, 0)
+                    calendar.set(Calendar.DAY_OF_WEEK, dayOfWeek + 1)
+
+                    if (calendar.before(Calendar.getInstance())) {
+                        calendar.add(Calendar.DAY_OF_MONTH, 7)
+                    }
+
+                    setNotificationAlarm(interval)
+                }
+            }
+        }
+
+
 
         findNavController().navigate(action_fragmentAddMedicine_to_fragmentCalendar)
     }

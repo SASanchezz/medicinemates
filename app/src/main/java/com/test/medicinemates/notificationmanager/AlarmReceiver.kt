@@ -17,9 +17,11 @@ import com.test.medicinemates.R
 class AlarmReceiver : BroadcastReceiver() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onReceive(context: Context?, intent: Intent?) {
+        var description = intent?.getStringExtra("description");
+
         var builder = NotificationCompat.Builder(context!!, mChannel.id)
             .setSmallIcon(R.drawable.ic_notification)
-            .setContentTitle("Шиз, прийми таблетки")
+            .setContentTitle("Час для: $description")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setAutoCancel(true)
 

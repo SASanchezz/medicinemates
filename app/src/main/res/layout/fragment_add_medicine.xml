@@ -10,8 +10,8 @@
 
     <EditText
         android:id="@+id/et_medicine_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
         android:ems="10"
         android:inputType="text"
         android:hint="@string/medicine_name"
@@ -27,6 +27,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:text="@string/medicine_start_intake_date"
+        android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/et_start_intake_date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,8 +35,8 @@
     <EditText
         android:id="@+id/et_start_intake_date"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="100dp"
+        android:layout_height="40dp"
+        android:minWidth="120dp"
         android:layout_marginEnd="20dp"
         android:clickable="false"
         android:cursorVisible="false"
@@ -50,8 +51,8 @@
 
     <EditText
         android:id="@+id/et_intake_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
         android:clickable="false"
         android:cursorVisible="false"
         android:focusable="false"
@@ -65,8 +66,8 @@
 
     <Spinner
         android:id="@+id/et_intake_regularity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:inputType="text"
         android:layout_marginTop="20dp"
@@ -82,14 +83,15 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="20dp"
         android:text="@string/medicine_end_intake_date"
+        android:textSize="16dp"
         app:layout_constraintTop_toBottomOf="@+id/et_intake_regularity"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/et_end_intake_date"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="100dp"
+        android:layout_height="40dp"
+        android:minWidth="120dp"
         android:layout_marginEnd="20dp"
         android:hint="@string/dont_set"
         android:clickable="false"
@@ -112,6 +114,7 @@
         android:paddingRight="80dp"
         android:paddingBottom="20dp"
         android:text="@string/save"
+        android:textSize="24dp"
         android:textColor="@color/white"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/b_cancel_new_medicine"
@@ -127,6 +130,7 @@
         android:backgroundTint="@color/cancel_action"
         android:padding="20dp"
         android:text="@string/cancel"
+        android:textSize="18dp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

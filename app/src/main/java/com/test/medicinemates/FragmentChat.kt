@@ -68,6 +68,7 @@ class FragmentChat : Fragment() {
         val messageText = "<b>$sender:</b> $message"
         val messageTextView = TextView(requireContext())
         messageTextView.text = Html.fromHtml(messageText, Html.FROM_HTML_MODE_LEGACY)
+        messageTextView.textSize = 18f
 
         binding.chatContainer.addView(messageTextView)
     }

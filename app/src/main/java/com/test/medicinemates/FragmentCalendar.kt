@@ -49,6 +49,10 @@ class FragmentCalendar : Fragment() {
             buttonAddClick()
         }
 
+        binding.bChatBot.setOnClickListener {
+            findNavController().navigate(R.id.action_fragmentCalendar_to_fragmentChat)
+        }
+
         val manager = LinearLayoutManager(activity)
         adapter = MedicineAdapter()
         viewLifecycleOwner.lifecycleScope.launch {

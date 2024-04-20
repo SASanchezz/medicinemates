@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -30,22 +31,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cv_calendar" />
 
-    <Button
-        android:id="@+id/b_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/main"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:paddingLeft="80dp"
-        android:paddingRight="80dp"
-        android:text="@string/add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_current_day" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_current_day"
         android:layout_width="409dp"
@@ -57,6 +42,46 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_current_date" />
+
+    <RelativeLayout
+        android:id="@+id/inputContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:padding="8dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/b_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="350dp"
+            android:minHeight="80dp"
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="@color/main"
+            android:layout_toLeftOf="@+id/b_chat_bot"
+            android:layout_toStartOf="@+id/b_chat_bot"
+            android:layout_centerVertical="true"
+            android:text="@string/add"
+            android:textSize="22dp" />
+
+        <ImageButton
+            android:id="@+id/b_chat_bot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:maxWidth="80dp"
+            android:maxHeight="80dp"
+            android:padding="0dp"
+            android:src="@drawable/ic_chat"/>
+    </RelativeLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

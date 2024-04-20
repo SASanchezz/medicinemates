@@ -5,7 +5,8 @@ import com.test.medicinemates.connections.Db
 
 class MedicineService {
     suspend fun getDayMedicine(date: String): List<MedicineModel> {
-        val medicineEntities = Db.medicineRepository.getDayMedicine(date)
+        var medicineEntities = Db.medicineRepository.getDayMedicine(date)
+        medicineEntities = medicineEntities.sortedWith(compareBy({ it.intakeTime }, { it.name }))
         return medicineEntities.map {
             MedicineModel(
                 name = it.name,

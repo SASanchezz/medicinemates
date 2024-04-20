@@ -3,8 +3,9 @@
     <string name="action_settings">Налаштування</string>
     <string name="action_chat">Чат-помічник</string>
     <string name="calendar_fragment_label">Календар</string>
+    <string name="chat_fragment_label">Особистий помічник</string>
     <string name="preferences_fragment_label">Налаштування</string>
-    <string name="add">Додати</string>
+    <string name="add">Додати нові ліки</string>
     <string name="save">Зберегти</string>
     <string name="cancel">Охрана отмєна</string>
     <string name="medicine_name">Назва добавки</string>
